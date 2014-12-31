@@ -15,6 +15,7 @@ end
 
 
 
+
 p is_palindrome?("a") == true
 
 p is_palindrome?("hi") == false
