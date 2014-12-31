@@ -37,3 +37,5 @@ end
 
 
 p find_given_integer(112, [0,112, 1,2,3,4,5,6])
+
+p find_given_integer(1, [5,3,1,3,5,78,9])
