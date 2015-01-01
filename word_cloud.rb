@@ -12,9 +12,6 @@ def find_word_count(input_string)
 	return word_counter
 end
 
-def is_letter
-
-end
 
 p find_word_count("After beating the eggs, Dana read the next step:'
 'Add milk and eggs, then add flour and sugar.")

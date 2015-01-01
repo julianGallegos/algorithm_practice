@@ -1,6 +1,6 @@
 def reverse_words(message)
 
-#swap character[0] with character.last
+ p message.split(" ")
 
 
 end

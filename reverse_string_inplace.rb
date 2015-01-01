@@ -1,4 +1,4 @@
-
+ 	
 
 def reverse_string_in_place(input_string)
 	front_of_string = 0
