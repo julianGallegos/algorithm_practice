@@ -30,18 +30,31 @@ class NodeList
 		  end
 	end	
 
-	#brute force solution
+	# #brute force solution
+
+	# def is_cycled_list?(starting_node)
+	# 	#iterate through all the node values in a hash
+	# 	#if any of the node.next is pointing to a node value in the hash then it has a cycle
+	# 	#if it is not pointing to any of the nodes in the hash, then there is no cycle
+	# 	nodes_checked = []
+	# 	until starting_node.next.nil? do
+	# 		return true if nodes_checked.include? starting_node
+	# 		nodes_checked << starting_node
+	# 		starting_node = starting_node.next
+	# 	end
+	# 	false
+	# end
+
 	def is_cycled_list?(starting_node)
-		#iterate through all the node values in a hash
-		#if any of the node.next is pointing to a node value in the hash then it has a cycle
-		#if it is not pointing to any of the nodes in the hash, then there is no cycle
-		nodes_checked = []
-		until starting_node.next.nil? do
-			return true if nodes_checked.include? starting_node
-			nodes_checked << starting_node
-			starting_node = starting_node.next
+		slow_runner = starting_node
+		fast_runner = starting_node
+
+		until slow_runner.next.nil? == fast_runner.next.nil?
+			slow_runner = starting_node.next
+			fast_runner = starting_node.next.next
+			return true if slow_runner == fast_runner
 		end
-		false
+		return false
 	end
 
 end
