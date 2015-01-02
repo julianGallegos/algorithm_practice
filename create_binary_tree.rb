@@ -21,7 +21,7 @@ class BinaryTree
 		current_node = @root_value
 		if node_value < current_node.value && current_node.left == nil
 			@root_value.left = TreeNode.new(node_value)
-		else 
+		else node_value > current_node.value && current_node.right == nil
 			@root_value.right = TreeNode.new(node_value)
 		end
 	end
@@ -35,3 +35,5 @@ p my_tree = BinaryTree.new(2)
 p my_tree.insert_node(6)
 
 p my_tree
+
+
