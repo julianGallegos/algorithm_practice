@@ -34,6 +34,8 @@ class MaxStack
 		@maximum = Stack.new
 	end
 
+
+#brute force solution to check what the highest integer is as it's pushed into maximum stack
 	def push_into_stack(number)
 		
 		if @maximum.is_empty? 
