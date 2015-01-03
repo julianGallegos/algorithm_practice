@@ -37,6 +37,7 @@ class MaxStack
 
 #brute force solution to check what the highest integer is as it's pushed into maximum stack
 	def push_into_stack(number)
+		@storage_stack.store << number
 		
 		if @maximum.is_empty? 
 			@maximum.store << number
@@ -47,8 +48,19 @@ class MaxStack
 		else
 			return @maximum
 		end
-		  @storage_stack.store << number
 			p "the maximum value is #{@maximum.store}"
+			return @storage_stack.store
+	end
+
+	def pop_from_stack
+		if @maximum.store.last == @storage_stack.store.pop
+			 @maximum.store.pop
+			 @maximum.store << @storage_stack.store.max
+		else
+			@maximum.store = []
+		end
+		@storage_stack.pop_from_stack
+		p "the maximum value is #{@maximum.store}"
 	end
 
 end
@@ -61,9 +73,11 @@ my_list = MaxStack.new
 my_list.push_into_stack(1)
 my_list.push_into_stack(2)
 my_list.push_into_stack(3)
-my_list.push_into_stack(4)
-my_list.push_into_stack(2)
-my_list.push_into_stack(7)
+my_list.push_into_stack(20)
+my_list.push_into_stack(5)
+my_list.push_into_stack(200)
 
-p my_list.storage_stack
-p my_list.maximum
+
+my_list.storage_stack.store
+
+
