@@ -1,5 +1,7 @@
 class Stack
 
+	attr_accessor :store
+
 	def initialize
 		@store = []
 	end
@@ -17,7 +19,7 @@ class Stack
 	end
 
 	def is_empty?
-		@store.nil?
+		@store.empty?
 	end
 
 end
@@ -25,17 +27,41 @@ end
 
 class MaxStack
 
+	attr_accessor :storage_stack, :maximum
+
 	def initialize
 		@storage_stack = Stack.new
-		@maxium_stack = Stack.new
+		@maximum = Stack.new
 	end
 
 	def push_into_stack(number)
-		#check if the input number is larger than all the values in the maximum stack
-		#if there is no number, push number into maximum stack
-		#elsif the number is bigger than all the numbers in the stack, push that number into max stack
-		#elsif the number is smaller, don't push it into the stack
-		#return the largest number
+		
+		if @maximum.is_empty? 
+			@maximum.store << number
+
+		elsif @maximum.peek_at_next_item < number
+			@maximum.pop_from_stack
+			@maximum.store << number
+		else
+			return @maximum
+		end
+		  @storage_stack.store << number
+			p "the maximum value is #{@maximum.store}"
 	end
 
 end
+
+
+
+
+my_list = MaxStack.new
+
+my_list.push_into_stack(1)
+my_list.push_into_stack(2)
+my_list.push_into_stack(3)
+my_list.push_into_stack(4)
+my_list.push_into_stack(2)
+my_list.push_into_stack(7)
+
+p my_list.storage_stack
+p my_list.maximum
