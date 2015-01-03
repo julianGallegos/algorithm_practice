@@ -52,6 +52,8 @@ class MaxStack
 			return @storage_stack.store
 	end
 
+
+# this method updates the max value incase the max is popped out of the maximum array
 	def pop_from_stack
 		if @maximum.store.last == @storage_stack.store.pop
 			 @maximum.store.pop
