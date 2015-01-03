@@ -6,6 +6,22 @@ class Stack
 		@store = []
 	end
 
+	def push(item_to_push)
+		@store << item_to_push
+	end
+
+	def pop
+		@store.pop
+	end
+
+	def peek_at_next_item
+		@store.last
+	end
+
+	def is_empty?
+		@store.nil?
+	end
+
 end
 
 class QueuedStack
