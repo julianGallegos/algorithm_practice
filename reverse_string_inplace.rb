@@ -15,11 +15,12 @@ def reverse_string_in_place(input_string)
 	return input_string
 end
 
-p reverse_string_in_place("julian") == "nailuj"
 
-p reverse_string_in_place("hello") == "olleh"
 
-p reverse_string_in_place("bye") == "eyb"
+
+
+
+
 
 
 
