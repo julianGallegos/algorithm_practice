@@ -11,11 +11,12 @@ def bracket_validator(input_code)
 
 	checking_stack = []
 
-	input_code.each_char do |char|
+	input_code.split("").each do |char|
 		if openners.include? char
 		checking_stack << char
 		end
 	end
+
 
 
 # 		If we see an opener, we push it onto the stack.
