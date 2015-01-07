@@ -1,14 +1,28 @@
-def return_prime_nums(input_number)
-	#if the range from number + 1
-	results = []
-	number_range = Range.new(2, input_number - 1)
-	number_range.each do |values|
-		if values % input_number == 0
-			puts "it's not a prime num"
-		else
-			puts "it is prime"
-		end
-	end
+# this checks if a single number is prime
+
+def is_a_prime_number?(num)
+	i = 2
+	while i < num
+		is_divisible = (num % i) == 0
+			if is_divisible
+				return false
+			end
+			i += 1
+		end 
+		true
 end
 
-return_prime_nums(4)
+p is_a_prime_number?(29) == true
+
+p is_a_prime_number?(17) == true
+
+p is_a_prime_number?(13) == true
+
+p is_a_prime_number?(31) == true
+
+p is_a_prime_number?(4) == false
+
+p is_a_prime_number?(16) == false
+
+
+# A prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and itself
