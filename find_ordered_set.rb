@@ -24,10 +24,12 @@ def find_given_integer(integer_to_find, input_array)
 
 		if input_array[mid_point] < integer_to_find
 			front_of_array = mid_point + 1
+			p mid_point
 		elsif input_array[mid_point] > integer_to_find
 			back_of_array = mid_point - 1
 		else
 			return input_array[mid_point]
+			p mid_point
 		end
 	end
 		
