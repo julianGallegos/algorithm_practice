@@ -14,7 +14,7 @@ def replace_blank_space(input_string)
 	split_string_array = input_string.split(" ")
 
 	split_string_array.map! do |word|
-		 word + "blankspace"
+		 word + "%20"
 	end
 	return split_string_array.join("")
 end
