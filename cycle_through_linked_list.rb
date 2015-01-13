@@ -1,6 +1,6 @@
 class Node
 
-	attr_accessor :value, :next
+	attr_accessor :value, :pointer
 	def initialize(value)
 		@value = value
 	end
@@ -18,15 +18,15 @@ class NodeList
 	end
 
 	def insert_node(node_to_insert)
-		@tail.next = node_to_insert
-		@tail = @tail.next
+		@tail.pointer = node_to_insert
+		@tail = @tail.pointer
 	end
 
 	def print_forward(node_to_print)
 
 		while node_to_print != nil
 			puts node_to_print.value
-		  node_to_print = node_to_print.next
+		  node_to_print = node_to_print.pointer
 		  end
 	end	
 
@@ -49,20 +49,38 @@ class NodeList
 		slow_runner = starting_node
 		fast_runner = starting_node
 
-		until slow_runner.next.nil? == fast_runner.next.nil?
-			slow_runner = starting_node.next
-			fast_runner = starting_node.next.next
+		until slow_runner.pointer.nil? == fast_runner.pointer.nil?
+			slow_runner = starting_node.pointer
+			fast_runner = starting_node.pointer.pointer
 			return true if slow_runner == fast_runner
 		end
 		return false
 	end
-end
 
+	# def is_cycled_list?(starting_node)
+	# 	slow_runner = starting_node
+	# 	fast_runner = starting_node
+
+	# 	while slow_runner != nil || fast_runner.pointer != nil
+	# 		slow_runner = starting_node.pointer
+	# 		fast_runner = starting_node.pointer.pointer
+	# 			if slow_runner == fast_runner
+	# 				return true
+	# 			end
+	# 	end
+	# 	return false
+	# end 
+
+
+
+end
 node1 = Node.new(1)
 node2 = Node.new(2)
 node3 = Node.new(3)
 node4 = Node.new(4)
 node5 = Node.new(5)
+node6 = Node.new(6)
+
 
 
 my_list = NodeList.new(node1)
@@ -71,14 +89,19 @@ my_list.insert_node(node2)
 my_list.insert_node(node3)
 my_list.insert_node(node4)
 my_list.insert_node(node5)
+my_list.insert_node(node6)
 
-my_list.print_forward(node1)
-p "*"*50
-p my_list.head.value
-p "*"*50
-p my_list.tail.value
+node6.pointer = node3
 
-p my_list.is_cycled_list?(node1)
+
+
+# p "*"*50
+# p my_list.head.value
+# p "*"*50
+# p my_list.tail.value
+
+p p my_list.is_cycled_list?(node1)
+
 
 
 
