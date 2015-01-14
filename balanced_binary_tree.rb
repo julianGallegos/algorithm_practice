@@ -1,12 +1,14 @@
-class TreeNode
+class Node
 
 	attr_accessor :data, :left, :right
-	
+
 	def initialize(data)
 		@data = data
 	end
 
 end
+
+
 
 class BinaryTree
 
@@ -16,54 +18,48 @@ class BinaryTree
 		@root = nil
 	end
 
-	def new_node_insertion(value)
-		@root = insert(@root, value)
+
+	def insert_node(value)
+			@root = node_insertion_helper(@root, value)
 	end
 
 	private
 
-	def insert(node,value)
-		
-		return TreeNode.new(value) unless node
-		
-		if value < node.data
-			node.left = insert(node.left, value)
-		else
-			node.right = insert(node.right, value)
-		end
-		return node
-	end
+	def node_insertion_helper(current_node, value)
+		if current_node == nil
+			current_node = Node.new(value)
 
-	def print_tree
-		current_node = @root
-		left_node = current_node.left
-		right_node = current_node.right
-		while current_node != nil
-			p current_node
-			p current_node.left.value
-			p current_node.right.value
+		elsif value < current_node.data
+			current_node.left = node_insertion_helper(current_node.left, value)
+		else value > current_node.data
+			current_node.right = node_insertion_helper(current_node.right, value)
 		end
+		return current_node
 	end
-
 end
 
 my_tree = BinaryTree.new
 
-my_tree.new_node_insertion(15)
+my_tree.insert_node(15)
 
-my_tree.new_node_insertion(7)
+my_tree.insert_node(7)
 
-my_tree.new_node_insertion(11)
+my_tree.insert_node(2)
 
-my_tree.new_node_insertion(2)
+my_tree.insert_node(11)
 
-p my_tree.root.data
+my_tree.insert_node(30)
 
-p my_tree.root.left.data
+my_tree.insert_node(20)
 
-p my_tree.root.left.right.data
+p my_tree.root.data == 15
 
-p my_tree.root.left.left.data 
+p my_tree.root.left.data == 7
 
-my_tree.print_tree
+p my_tree.root.left.left.data == 2
 
+p my_tree.root.left.right.data == 11
+
+p my_tree.root.right.data == 30
+
+p my_tree.root.right.left.data == 20
