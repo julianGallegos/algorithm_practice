@@ -1,25 +1,46 @@
 def merge_sorted_arrays(first_array, second_array)
-	
-	combined_array = []
 
-	total_input_array_length = first_array.length + second_array.length
-	
+	merged_array = []
 
-	first_array_head = first_array[0]
-	second_array_head = second_array[0]
-	while combined_array.length < total_input_array_length
-		
-			if first_array_head < second_array_head
-					combined_array << first_array.shift
-			 		
-			else
-				combined_array << second_array.shift
-		 end
+	merged_array_total_length = first_array.length + second_array.length
+
+
+	current_index_merged_array = 0
+
+
+	current_index_first_array = 0
+
+	current_index_second_array = 0
+
+	while current_index_merged_array < merged_array_total_length
+	  head_of_first = first_array[current_index_first_array]
+	  head_of_second = second_array[current_index_second_array]
+
+	  p "this is the head >>>>> #{head_of_first}"
+	  p " this is the second head >>>>>> #{head_of_second}"
+	  
+
+		if head_of_first < head_of_second
+
+		merged_array[current_index_merged_array] = head_of_second
+		current_index_second_array += 1
+
+		else head_of_first > head_of_second
+
+			merged_array[current_index_merged_array] = head_of_first
+			current_index_first_array += 1
+			
+		end
+		current_index_merged_array += 1
 	end
-	p combined_array
+	return merged_array
 end
 
-merge_sorted_arrays([3,4,6,10,11,15],[1,5,8,12,14,19])
+p merge_sorted_arrays([3,4,6,10,11,15],[1,5,8,12,14,19])
 
-#initialize an empty array to store both merged arrays 
-#iterate through each array and push each value into the new array
+
+
+
+
+
+
