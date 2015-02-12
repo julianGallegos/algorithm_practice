@@ -13,9 +13,8 @@ def compressed_string(input_string)
 	string_array.each do |letter|
 		char_counter[letter] += 1
 	end
-	char_counter.each do |key, value|
-		print "#{key}#{value}"
-	end
+	char_counter.keys.join("")
+	
 end
 
-compressed_string("aaaabbbcddeeeeee")
+p compressed_string("aaaabbbcddeeeeee")
