@@ -12,13 +12,26 @@ def divide_number(dividend, divisor)
 	return num_of_times_added
 end
 
-p divide_number(21, 4) == 5
+describe "divide_number" do 
 
-p divide_number(21, 3) == 7
+	it "divide_number(0, 0)" do
+		expect(divide_number(0, 0)).to eq(0)
+	end
 
-p divide_number(1, 1) == 1
+	it "divide_number(1, 1)" do
+		expect(divide_number(1, 1)).to eq(1)
+	end
 
-p divide_number(100, 25) == 4
+	it "divide_number(25, 5)" do
+		expect(divide_number(25, 5)).to eq(5)
+	end
 
-p divide_number(101, 25) == 4
+	it "divide_number(10000, 2)" do 
+		expect(divide_number(10000, 2)).to eq(5000)
+	end
+
+	it "divide_number(49, 7)" do 
+		expect(divide_number(49, 7)).to eq(7)
+	end
+end
 
