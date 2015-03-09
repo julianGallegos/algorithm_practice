@@ -87,4 +87,8 @@ describe "numbers_to_words" do
 	it "numbers_to_words(941)" do
 		expect(numbers_to_words(941)).to eq(" nine hundred forty one")
 	end
+
+	it "numbers_to_words(982)" do
+		expect(numbers_to_words(982)).to eq(" nine hundred eighty two")
+	end
 end
