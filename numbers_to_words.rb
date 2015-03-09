@@ -1,5 +1,9 @@
 def numbers_to_words(input_number)
 
+	if input_number == 0
+		return "zero"
+	end
+
 	string_of_numbers = ""
 
 	number_hash = {
@@ -39,15 +43,15 @@ def numbers_to_words(input_number)
 		4 => " four",
 		3 => " three",
 		2 => " two",
-		1 => " one",
+		1 => " one"
 	}
 
 	number_hash.each do |key, value|
 	
-
 		string_of_numbers << value * (input_number / key)
 		input_number = input_number % key
 		end
+
 	string_of_numbers
 	
 end
@@ -55,6 +59,10 @@ end
 
 
 describe "numbers_to_words" do
+
+	it "numbers_to_words(0)" do 
+		expect(numbers_to_words(0)).to eq("zero")
+	end
 
 	it "numbers_to_words(1)" do 
 		expect(numbers_to_words(1)).to eq(" one")
